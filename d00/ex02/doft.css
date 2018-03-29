@@ -1,0 +1,125 @@
+html {
+	font-size: 16px;
+	font-family: sans-serif;
+}
+
+body {
+	background-color: #4F4F4F;
+}
+
+header {
+	display: block;
+	position: relative;
+}
+
+.container {
+	position: relative;
+	margin: auto;
+	width: 85em;
+}
+
+.head {
+	margin: 1em;
+	padding: .5em;
+	box-sizing: border-box;
+	background-color: #8F8F8F;
+	border-radius: .5em;
+	box-shadow: .5em .5em .5em black;
+}
+
+.col_left, .col_centr, .col_right {
+	margin: 1em;
+	padding: .5em;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #8F8F8F;
+	box-sizing: border-box;
+	border-radius: .5em;
+	box-shadow: .5em .5em .5em black;
+}
+
+.col_left, .col_right {
+	min-height: 26em;
+}
+
+.col_centr {
+	width: 74%;
+}
+
+.main {
+	padding: 0 1.5em;
+}
+
+.day_42 {
+	height: 6em;
+}
+
+.reload {
+	position: absolute;
+	right: .5em;
+	top: .5em;
+	width: 1em;
+}
+
+.loupe {
+	position: absolute;
+	right: 1.5em;
+	top: .5em;
+	height: 8em; 
+}
+
+.close {
+	position: absolute;
+	right: .5em;
+	bottom: .5em;
+	width: 1em;
+}
+
+.icon {
+	display: block;
+	margin: 1em;
+	width: 4em;
+}
+
+.active {
+	border: .3em solid red;
+	border-radius: .5em;
+}
+
+.cluster {
+	width: 100%;
+}
+
+.bricks {
+	width: 100%;
+	height: 4em;
+	background-image: url("resources/brick.jpg");
+}
+
+.window {
+	position: absolute;
+	bottom: -5em;
+	left: 1em;
+	width: 25em;
+	padding: 1em 1em 3em 1em;
+	background-color: #8F8;
+	border-radius: .5em;
+	box-shadow: .5em .5em .5em black;
+}
+
+.txt_big {
+	font-size: 2em;
+	font-family: serif;
+}
+
+.txt_shadow {
+	text-shadow: -.25em .25em .25em red;
+}
+
+.txt_italic {
+	font-style: italic;
+}
+
+.input_text {
+	width: 18em;
+}
