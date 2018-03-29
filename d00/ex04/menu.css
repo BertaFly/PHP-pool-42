@@ -1,0 +1,70 @@
+body {
+	background-color: #f7e6ff;
+}
+
+	a {
+		text-decoration:none;
+		color: #000;
+		display: block;
+	}
+
+	nav.drop_down	{
+		font-family: sans-serif;
+		text-align: right;
+	}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+			ul.menu {
+				display: inline-block;
+				width: 30%;
+				text-align: center;
+				background: #d9b3ff;
+				position: relative;
+			}
+
+				ul.menu li.menu_item {
+					display: block;
+					float: left;
+					width: 33.3%;
+					font-weight: bold;
+					line-height: 50px;
+				}
+
+				li.menu_item:hover {
+					background: #9999ff;
+					-moz-box-shadow: 0px 3px 7px #251d1b;
+					-webkit-box-shadow: 0px 3px 7px #251d1b;
+					box-shadow: 0px 3px 7px #251d1b;
+					box-sizing: border-box;
+					transition-duration: 0.5s;
+					transition-property: background-color;
+					cursor: pointer;
+				}
+
+					.ingredients {
+						background: #ccccff;
+						position: absolute;
+						top: 50px;
+						left:-9999px;
+						-moz-box-shadow: 0px 3px 7px #251d1b;
+						-webkit-box-shadow: 0px 3px 7px #251d1b;
+						box-shadow: 0px 3px 7px #251d1b;
+						box-sizing: border-box;
+						text-align: center;
+					}
+
+					.menu_item:hover .ingredients{
+						left: auto;
+						width: 33.3%;
+					}
+
+						.ingredients_item:hover {
+							background: #9999ff;
+							transition-duration: 0.5s;
+							transition-property: background-color;
+						}

@@ -1,0 +1,72 @@
+body {
+	background-color: #F0F0F0;
+}
+	
+	table {
+		width: 90%;
+		background: #ccfff5;
+		margin: auto;
+	}
+		th {
+			border: 1px solid #000;
+			padding: 5px;
+		}
+
+			.no_border > th {
+				border: 1px solid #ccfff5;
+			}
+			
+			img {
+				display: none;
+			}
+
+				.picture {
+					padding: 0;
+					margin: 0;
+					background: url(http://www.dmitrimendeleev.com/wp-content/uploads/sites/5/2015/12/xDmitri-Mendeleev-Biography-750x410.jpg.pagespeed.ic.nhXu01fU-g.jpg);
+					background-position: center;
+					background-size: cover;
+				}
+
+			.a_weight {
+				text-align: right;
+				font-size: 10px;
+				margin: 0;
+			}
+
+			.elem_name {
+				text-align: center;
+				font-style: bold;
+				font-size: 15px;
+
+			}
+
+			.nbr {
+				text-align: left;
+				font-size: 10px;
+				margin: 0;
+			}
+
+@media screen and (max-width: 769px) {
+	table {
+		width: 100%;
+	}
+
+		th {
+			border: 0.5px solid #000;
+			padding: 1px;
+		}
+			.picture {
+				background-size: cover;
+			}
+
+			.a_weight, .nbr {
+				font-size: 5px;
+				font-family: sans-serif;
+			}
+
+			.elem_name {
+				font-size: 10px;
+				font-family: sans-serif;
+			}
+}
