@@ -1,0 +1,11 @@
+#!/usr/bin/php
+<?php
+
+function	ft_split($str)
+{
+	print_r(array_map('trim',explode(",",$str)));
+}
+
+ft_split("Hello World AAA");
+
+?>
