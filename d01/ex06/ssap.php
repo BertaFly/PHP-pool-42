@@ -1,18 +1,28 @@
 #!/usr/bin/php
 <?php
 
-$i = 1;
-$k = 0;
-
-$arr = array();
-while ($i <= $argc)
+function	ft_split($str)
 {
-	$arr[$k]=$argv[$i];
-	$i++;
-	$k++;
+	$arr = array_filter(explode(" ", $str));
+	sort($arr);
+	return $arr;
 }
-$arr = array_filter(explode(" ", $arr));
-sort($arr);
-print_r($arr);
+
+$i = 0;
+
+if ($argc > 1)
+{
+	while ($i < $argc)
+	{
+		$str .= preg_replace('/^\s+|\s+$|\s+(?=\s)/', ' ', $argv[$i + 1]) . " ";
+		$i++;
+	}
+}
+
+$arr = ft_split($str);
+while (list(, $item) = each($arr))
+{
+	echo $item . "\n";
+}
 
 ?>
