@@ -21,8 +21,6 @@ if ($argc > 1)
 
 $arr = ft_split($str);
 while (list(, $item) = each($arr))
-{
 	echo $item . "\n";
-}
 
 ?>
