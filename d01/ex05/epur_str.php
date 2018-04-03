@@ -1,8 +1,11 @@
 #!/usr/bin/php
 <?php
 
-$subject = $argv[1];
-$result = preg_replace('/^\s+|\s+$|\s+(?=\s)/', '', $subject);
-echo $result . "\n";
+if ($argc == 2)
+{
+	$arr = str_word_count($argv[1], 1, '!"#$%&\'()*+,.-/0123456789:;<=>?@[\]^_`{|}~');
+	$str = implode(" ", $arr);
+	echo ($str . "\n");
+}
 
 ?>

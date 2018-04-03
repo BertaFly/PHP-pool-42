@@ -1,31 +1,17 @@
 #!/usr/bin/php
 <?php
 
-function	ft_split($argv)
-{
-	$res = array();
-	$arr = array_filter(explode(" ", $argv));
-	foreach ($arr as $a)
-	{
-		array_push($res, $a);
-	}
-	return $res;
-}
-
 function	ssap($argv)
 {
 	$res = array();
 
 	for ($i = 1; $i < count($argv); $i++)
 	{
-		$split = ft_split($argv[$i]);
-		foreach ($split as $a)
-			array_push($res, $a);
+		$str = str_word_count($argv[$i], 1, '!"#$%&\'()*+,.-/0123456789:;<=>?@[\]^_`{|}~');
+		$res = array_merge($res, $str);
 	}
 	return $res;
 }
-
-$i = 0;
 
 if ($argc > 1)
 {

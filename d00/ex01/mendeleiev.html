@@ -21,15 +21,17 @@
 		th {
 			border: 1px solid #000;
 		}
+		p {
+			margin: 0;
+		}
 		.a_weight {
 			text-align: right;
 			font-size: 10px;
 		}
 		.elem_name {
 			text-align: center;
-			font-style: bold;
-			font-size: 15px;
-
+			font-weight: bold;
+			font-size: 25px;
 		}
 		.nbr {
 			text-align: left;
@@ -42,14 +44,14 @@
 			background-position: center;
 			background-size: cover;
 		}
-		.no_border > th {
+		/*.no_border > th {
 			border: 1px solid #ccfff5;
-		}
+		}*/
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<table cellspacing="0", cellpadding ="5">
+			<table cellspacing="0" cellpadding="2">
 				<tr>
 					<th>
 						<p class="a_weight">
@@ -62,7 +64,7 @@
 							1
 						</p>
 					</th>
-					<th colspan="16" class="no_border" style="border-bottom: 0; border-top: 0; background-color: #F0F0F0;"></th>
+					<th colspan="16" style="border-bottom: 0; border-top: 0; background-color: #F0F0F0;"></th>
 					<th>
 						<p class="a_weight">
 							4.003
@@ -99,7 +101,7 @@
 							4
 						</p>
 					</th>
-					<th colspan="10" rowspan="2" class="no_border" style=" border-top : 0; background-color: #F0F0F0;"></th>
+					<th colspan="10" rowspan="2" style=" border-top : 0; background-color: #F0F0F0;"></th>
 					<th>
 						<p class="a_weight">
 							10.81
@@ -190,7 +192,6 @@
 							12
 						</p>
 					</th>
-					<!-- <th colspan="10"></th> -->
 					<th>
 						<p class="a_weight">
 							26.982

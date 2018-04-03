@@ -5,10 +5,9 @@ $file = fopen("php://stdin", "r;");
 while($file && !feof($file))
 {
 	echo ("Enter a number: ");
-	$num = fgets($file);
+	$num = trim(fgets($file));
 	if ($num)
 	{
-		$num = str_replace("\n", "", $num); //erases enter at the EOL
 		if (is_numeric($num))
 		{
 			if ($num % 2 == 0)

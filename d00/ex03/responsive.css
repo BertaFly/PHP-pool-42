@@ -11,10 +11,6 @@ body {
 			border: 1px solid #000;
 			padding: 5px;
 		}
-
-			.no_border > th {
-				border: 1px solid #ccfff5;
-			}
 			
 			img {
 				display: none;
@@ -36,9 +32,8 @@ body {
 
 			.elem_name {
 				text-align: center;
-				font-style: bold;
-				font-size: 15px;
-
+				font-weight: bold;
+				font-size: calc(.5vw + 0.5vh + .5vmin)
 			}
 
 			.nbr {
@@ -46,6 +41,14 @@ body {
 				font-size: 10px;
 				margin: 0;
 			}
+@media screen and (max-width: 1482px) {
+	table {
+		width: 100%;
+	}
+	/*.elem_name {
+		font-size: 15px;
+	}*/
+}
 
 @media screen and (max-width: 769px) {
 	table {
@@ -66,7 +69,7 @@ body {
 			}
 
 			.elem_name {
-				font-size: 10px;
+				/*font-size: 10px;*/
 				font-family: sans-serif;
 			}
 }

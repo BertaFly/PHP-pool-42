@@ -15,11 +15,10 @@ if ($argc > 1)
 	$key = $argv[1];
 	$arr = array();
 	$i = 2;
-	while ($i < $argc)
+	for ($i = 2; $i < $argc; $i++)
 	{
 		$tmp = ft_split($argv[$i], ':');
 		$arr[$tmp[0]] = $tmp[1];
-		$i++;
 	}
 	if (!is_null($arr[$key]))
 		echo ($arr[$key] . "\n");

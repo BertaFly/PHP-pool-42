@@ -17,13 +17,13 @@ html {
 				position: relative;
 			}
 
-				header .head {
+				.head {
 					margin: 1em;
 					padding: .5em;
 					box-sizing: border-box;
 					background-color: #8F8F8F;
-					border-radius: .5em;
-					box-shadow: .5em .5em .5em black;
+					border-radius: 0.5em;
+					box-shadow: 0.5em 0.5em 0.5em black;
 				}
 
 					.day_42 {
@@ -86,6 +86,7 @@ html {
 						}
 
 					.cluster {
+						display: block;
 						width: 100%;
 					}
 

@@ -1,23 +1,13 @@
 #!/usr/bin/php
 <?php
 
-function	ft_split($str)
+if ($argc > 1)
 {
-	$arr = array_filter(explode(" ", $str));
-	return $arr;
-}
-
-function	rostring($src)
-{
-	$arr = ft_split(preg_replace('/^\s+|\s+$|\s+(?=\s)/', ' ', $src) . " ");
-	print_r($arr);
+	$arr = str_word_count($argv[1], 1, '!"#$%&\'()*+,.-/0123456789:;<=>?@[\]^_`{|}~');
 	$tmp = array_shift($arr);
-	while (list(, $item) = each($arr))
-	{
-		echo $item . " ";
-	}
+	foreach ($arr as $item)
+			echo $item . " ";
 	echo $tmp ."\n";
 }
 
-rostring($argv[1]);
 ?>

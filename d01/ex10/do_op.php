@@ -17,10 +17,6 @@ if ($argc == 4)
 	elseif ($oper[0] == '%')
 		$res = $a % $b;
 	echo ($res . "\n");
-	echo ($a . "\n");
-	echo ($oper . "\n");
-	echo ($b . "\n");
-
 }
 else
 	echo ("Incorrect Parameters\n");
