@@ -1,41 +1,51 @@
 #!/usr/bin/php
 <?php
 
-function	ssap($argv)
+function	what_type($c)
 {
-	$res = array();
+	$a = ord($c);
+	if ($a >= ord('a') && $a <= ord('z'))
+		return 0;
+	else if ($a >= ord('0') && $a <= ord('9'))
+		return 1;
+	return 2;
+}
 
-	for ($i = 1; $i < count($argv); $i++)
+function	ssap2($a, $b)
+{
+	$a = strtolower($a);
+	$b = strtolower($b);
+	for ($i = 0; $a[$i] && $b[$i]; $i++)
 	{
-		$str = str_word_count($argv[$i], 1, '!"#$%&\'()*+,.-/0123456789:;<=>?@[\]^_`{|}~');
-		$res = array_merge($res, $str);
+		$aa = what_type(substr($a, $i, 1));
+		$bb = what_type(substr($b, $i, 1));
+		if ($aa < $bb)
+			return -1;
+		else if ($aa > $bb)
+			return 1;
+		else if ($a[$i] != $b[$i])
+			return ($a[$i] < $b[$i]) ? -1 : 1;
+		$i++;
 	}
-	return $res;
+	if ($a[$i] != $b[$i])
+		return ($a[$i] < $b[$i]) ? -1 : 1;
+	return 0;
 }
 
 if ($argc > 1)
 {
-	$chars = array();
-	$nbr = array();
-	$left = array();
-	$ssap = ssap($argv);
-	foreach ($ssap as $a)
+	$arr = array();
+	for ($i = 1; $i < $argc; $i++)
 	{
-		if (ctype_alpha($a[0]))
-			array_push($chars, $a);
-		elseif (ctype_digit($a[0]))
-			array_push($nbr, $a);
-		else
-			array_push($left, $a);
+		$str = str_replace(["\r", "\n", "\t"], " ", $argv[$i]);
+		while (strpos($str, "  ") == true)
+			$str = str_replace("  ", " ", $str);
+		$str = trim($str);
+		$input = explode(' ', $str);
+		$arr = array_merge($arr, $input);
 	}
-	natcasesort($chars);
-	sort($nbr, SORT_STRING);
-	sort($left);
-	while (list(, $item) = each($chars))
-		echo $item . "\n";
-	while (list(, $item) = each($nbr))
-		echo $item . "\n";
-	while (list(, $item) = each($left))
+	usort($arr, 'ssap2');
+	foreach ($arr as $item)
 		echo $item . "\n";
 }
 

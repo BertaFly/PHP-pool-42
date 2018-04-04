@@ -3,8 +3,12 @@
 
 function	ft_split($str, $delim)
 {
-	$res = array();
+	$str = str_replace(["\r", "\n", "\t"], " ", $str);
+	while (strpos($str, "  ") !== false)
+		$str = str_replace("  ", " ", $str);
+	$str = trim($str);
 	$arr = explode($delim, $str);
+	$res = array();
 	foreach ($arr as $item)
 		array_push($res, $item);
 	return $res;

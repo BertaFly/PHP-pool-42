@@ -10,7 +10,7 @@ if ($argc == 4)
 		$res = $a + $b;
 	elseif ($oper[0] == '-')
 		$res = $a - $b;
-	elseif ($oper[0] == '*')
+	elseif ($oper[0] == '*' || ("./" . $oper == $argv[0]))
 		$res = $a * $b;
 	elseif ($oper[0] == '/')
 		$res = $a / $b;

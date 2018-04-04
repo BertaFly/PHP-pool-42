@@ -3,28 +3,30 @@
 
 if ($argc == 2)
 {
-	$input = str_word_count($argv[1], 1, '!"#$&\'(),.0123456789:;<=>?@[\]^_`{|}~');
+	$input = preg_replace('/\s\s+/', ' ', $argv[1]);
+	$input = trim($input);
+	$input = explode(' ', $input);
 	$operators = array('+', '-', '*', '%', '/');
 	$i = 0;
 	foreach ($operators as $sign)
 	{
-		if (($i = strpos($argv[1], $sign)))
-			break ;
+		if ($input[1] == $sign)
+			$i = 1;
 	}
-	if ($i > 0)
+	if ($i == 1)
 	{
-		if (is_numeric($input[0]) && is_numeric($input[1]))
+		if (is_numeric($input[0]) && is_numeric($input[2]))
 		{
-			if ($argv[1][$i] == '+')
-				$res = $input[0] + $input[1];
-			elseif ($argv[1][$i] == '-')
-				$res = $input[0] - $input[1];
-			elseif ($argv[1][$i] == '*')
-				$res = $input[0] * $input[1];
-			elseif ($argv[1][$i] == '/')
-				$res = $input[0] / $input[1];
-			elseif ($argv[1][$i] == '%')
-				$res = $input[0] % $input[1];
+			if ($input[1] == '+')
+				$res = $input[0] + $input[2];
+			elseif ($input[1] == '-')
+				$res = $input[0] - $input[2];
+			elseif ($input[1] == '*')
+				$res = $input[0] * $input[2];
+			elseif ($input[1] == '/')
+				$res = $input[0] / $input[2];
+			elseif ($input[1] == '%')
+				$res = $input[0] % $input[2];
 			echo $res . "\n";
 		}
 		else
