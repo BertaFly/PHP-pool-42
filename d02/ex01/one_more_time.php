@@ -20,13 +20,16 @@ if ($argc > 1)
 	{
 		if (strlen($data[4]) == 8 && $hour < 24 && $min < 60 && $sec < 60)
 		{
-			$month_nbr = -1;
+			$month_nbr = 1;
 			$k = 0;
 			foreach ($monthes as $item)
 			{
-				$month_nbr++;
-				if ($item == strtolower($data[2]))
+				if ($item == $month)
+				{
 					$k = 1;
+					break ;
+				}
+				$month_nbr++;
 			}
 			$i = 0;
 			foreach ($week_day as $value)
@@ -36,7 +39,7 @@ if ($argc > 1)
 			}
 			if ($k == 1 && $i == 1)
 			{
-				$res = mktime($hour, $min, $sec, $month_nbr, $date, $year);
+				$res = mktime($hour, $min, $sec, 11, $date, $year);
 				echo $res . "\n";
 			}
 			else
