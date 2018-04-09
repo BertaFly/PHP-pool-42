@@ -15,10 +15,8 @@ if ($_SERVER['PHP_AUTH_USER'] == 'zaz' && $_SERVER['PHP_AUTH_PW'] == 'jaimelespe
 }
 else
 {
-	
 	header('WWW-Authenticate: Basic realm=\'Member area\'');
 	header('HTTP/1.0 401 Unauthorized');
-	header("Connection: close");
 	header("Content-Type: text/html");
 	echo "<html><body>That area is accessible for members only</body></html>";
 }
