@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="
+		width=device-width,
+		height=device-height,
+		initial-scale=1,
+		minimum-scale=1,
+		maximum-scale=1,
+		user-scalable=0"/>
+	<title>Calculator</title>
+</head>
+<body>
+	<div class="calc">
+		<form>
+			<input type="text" name="left-int" id="li">
+			<select size="1" required id="op">
+				<option>
+					+
+				</option>
+				<option>
+					-
+				</option>
+				<option>
+					*
+				</option>
+				<option>
+					/
+				</option>
+				<option>
+					%
+				</option>
+			</select>
+			<input type="text" name="right-int" id="ri">
+			<input id="submit" type="submit" name="submit" value="Try me!" onclick="count(li.value, op.value, ri.value)">
+		</form>
+	</div>
+
+</body>
+<script>
+var timerId = setInterval(function() {  alert( "Please, use me..." );}, 30000);
+function count(li, op, ri) {
+	var msg;
+	var left = parseInt(li);
+	var right = parseInt(ri);
+	if (left > -1 && right > -1 && li !== "" && ri !== "")
+	{
+		if (op === '+')
+			msg = left + right;
+		else if (op === '-')
+			msg = left - right;
+		else if (op === '*')
+			msg = left * right;
+		else if (op === '/' && right !== 0)
+			msg = left / right;
+		else if (op === '/' && right === 0)
+			msg = "It’s over 9000!";
+		else if (op === '%' && right !== 0)
+			msg = left % right;
+		else if (op === '%' && right === 0)
+			msg = "It’s over 9000!";
+	}
+	else
+		msg = "Error :(";
+	console.log(msg);
+    alert(msg);
+}
+	</script>
+</html>

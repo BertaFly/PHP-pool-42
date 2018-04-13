@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="
+		width=device-width,
+		height=device-height,
+		initial-scale=1,
+		minimum-scale=1,
+		maximum-scale=1,
+		user-scalable=0"/>
+	<style>
+	.balloon
+	{
+		width: 200px;
+		height: 200px;
+		-webkit-border-radius: 10000px;
+				border-radius: 10000px;
+		background: red;
+		transition-property: background, width, height;
+		transition-duration: 0.3s;
+		margin: 30vh auto;
+	}
+	</style>
+	<title>Balloon</title>
+</head>
+<body>
+	<div class="balloon"></div>
+
+</body>
+<script>
+	const bal = document.getElementsByClassName('balloon');
+	var colors = ['red', 'green', 'blue'];
+	let colorIndex  = 0;
+	var width = 200;
+	var height = 200;
+
+	bal[0].addEventListener('click', () => 
+	{
+		colorIndex = (colorIndex + 1) % colors.length;
+		bal[0].style.backgroundColor = colors[colorIndex];
+		width = width > 410 ? 200 : width + 10;
+		height = height > 410 ? 200 : height + 10;
+		bal[0].style.width = width + 'px';
+		bal[0].style.height = height + 'px';
+	});
+
+	bal[0].addEventListener('mouseleave', () => 
+	{
+		colorIndex = (colorIndex == 0) ? colors.length - 1 : colorIndex - 1;
+		bal[0].style.backgroundColor = colors[colorIndex];
+		width = width > 204 ? width - 5 : width;
+		height = height > 204 ? height - 5 : height;
+		bal[0].style.width = width + 'px';
+		bal[0].style.height = height + 'px';
+	});
+	</script>
+</html>
