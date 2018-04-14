@@ -12,15 +12,16 @@ function splitCookie() {
 function delNode(node, nbr, text) {
     node.parentNode.removeChild(node);
     var search = nbr + "=" + btoa(text);
-    document.cookie = search + ";expires=Thu, 30 Apr 2018 12:00:00 UTC;";
+    document.cookie = search + ";expires=Thu, 26 Mar 2015 15:26:23 GMT;";
 }
 
 function insertTask (nbr, text) {
-    var task = document.createElement('li');
+    var task = document.createElement('div');
     task.setAttribute("id", nbr);
+    task.setAttribute("class", "TODO");
     task.innerHTML = text;
     task.addEventListener('click', function(event) {
-        if (event.target.tagName.toLowerCase() === 'li') {
+        if (event.target.tagName.toLowerCase() === 'div') {
             if (confirm("This action will delete this task. Are you sure?")) {
                 var node = document.getElementById(event.target.id);
                 var search = event.target.id;
@@ -41,7 +42,6 @@ window.onload = function(){
 		var id = parseInt(arr[i], 10);
         var tmp = arr[i].substr(arr[i].indexOf("=") + 1);
         var str = atob(tmp);
-        console.log(str);
         if (str !== "null")
         {
             var task = insertTask(id, str);

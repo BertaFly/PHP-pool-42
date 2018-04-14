@@ -35,7 +35,7 @@
 	var width = 200;
 	var height = 200;
 
-	bal[0].addEventListener('click', () => 
+	bal[0].addEventListener('click', function()
 	{
 		colorIndex = (colorIndex + 1) % colors.length;
 		bal[0].style.backgroundColor = colors[colorIndex];
@@ -45,7 +45,7 @@
 		bal[0].style.height = height + 'px';
 	});
 
-	bal[0].addEventListener('mouseleave', () => 
+	bal[0].addEventListener('mouseleave', function()
 	{
 		colorIndex = (colorIndex == 0) ? colors.length - 1 : colorIndex - 1;
 		bal[0].style.backgroundColor = colors[colorIndex];

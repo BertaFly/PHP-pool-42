@@ -1,59 +1,62 @@
 <html>
 <head>
-	<title>To Do</title>
 	<script src="todo.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" rel="stylesheet">
 	<style>
 		body {
 			background: linear-gradient(0.25turn, #80e5ff, #196666);
 		}
 		.container {
-			width: 360px;
+			max-width: 500px;
 			margin: 100px auto;
 			background: #f7f7f7;
 			box-shadow: 0 0 3px rgba(0,0,0, 0.1);
 		}
 		.title {
 			background: #2980b9;
-			color: white;
 			margin: 0;
 			padding: 10px 20px;
+			font-family: "PT Sans", sans-serif;
+		}
+		.title p {
+			display: inline-block;
+			margin: 0;
+			color: #ffffff;
+			font-weight: 700;
 			text-transform: uppercase;
 			font-size: 24px;
-			font-weight: normal;
-			font-family: "Roboto", sans-serif;
+			font-family: "PT Sans", sans-serif;
 		}
-			.title p {
-				display: inline-block;
-				margin: 0;
-			}
-			.title button.add_item {
-				float: right;
-			 	font-size: 24px;
-			 	font-weight: normal;
-			 	font-family: "Roboto", sans-serif;
-			 	cursor: pointer;
-			 	text-transform: uppercase;
-				background: none;
-				outline: none;
-				border: 0;
-				color: #fff;
-			}
-			li {
-				font-size: 18px;
-				color: #2980b9;
-				background-color: #f7f7f7;
-				width: 100%;
-				padding: 13px 13px 13px 20px;
-				box-sizing: border-box;
-				border: 3px solid rgba(0,0,0,0);
-				-webkit-box-sizing: border-box;
-				   -moz-box-sizing: border-box;
-				        box-sizing: border-box;
-				border: 1px solid #e6e6e6;
-			 	font-family: "Roboto", sans-serif;
-			}
+		.title button.add_item {
+			float: right;
+			font-size: 24px;
+			font-weight: 700;
+			font-family: "PT Sans", sans-serif;
+			cursor: pointer;
+			text-transform: uppercase;
+			background: none;
+			outline: none;
+			border: 0;
+			color: #fff;
+		}
+		div.TODO {
+			font-size: 18px;
+			color: #737373;
+			letter-spacing: 1px;
+			background-color: #f7f7f7;
+			width: 100%;
+			padding: 13px 13px 13px 20px;
+			box-sizing: border-box;
+			border: 3px solid rgba(0,0,0,0);
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 1px solid #e6e6e6;
+			font-family: "PT Sans", sans-serif;
+			font-style: italic;
+		}
 	</style>
+	<title>To Do</title>
 </head>
 <body>
 	<div class="container">

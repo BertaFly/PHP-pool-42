@@ -48,15 +48,15 @@
 			margin-left: 20px;
 			box-sizing: border-box;
 		}
-			#submit:hover {
-				background: #999999;
-				color: #ffffff;
-				transition-property: background, color;
-				transition-duration: 0.5s;
-				-webkit-box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
-				-moz-box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
-				box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
-			}
+		#submit:hover {
+			background: #999999;
+			color: #ffffff;
+			transition-property: background, color;
+			transition-duration: 0.5s;
+			-webkit-box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
+			-moz-box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
+			box-shadow: 2px 7px 29px 2px rgba(0,0,0,0.7);
+		}
 		.calc {
 			max-width: 650px;
 			margin: 10vh auto;
@@ -71,6 +71,7 @@
 			color: #ffffff;
 		}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title>Calculator</title>
 </head>
 <body>
@@ -95,20 +96,27 @@
 				</option>
 			</select>
 			<input type="text" name="right-int" id="ri">
-			<input id="submit" type="submit" name="submit" value="Try me!" onclick="count(li.value, op.value, ri.value)">
+			<!--<input id="submit" type="submit" name="submit" value="Try me!" onclick="count(li.value, op.value, ri.value)">-->
+			<input id="submit" type="submit" name="submit" value="Try me!">
 		</form>
 	</div>
 
 </body>
 <script>
-//	setInterval(function() {  alert( "Please, use me..." );}, 30000);
-	function count(li, op, ri) {
-		var msg;
-		var left = parseInt(li);
-		var right = parseInt(ri);
-		if (left > -1 && right > -1 && li !== "" && ri !== "")
+	setInterval(function() {  alert( "Please, use me..." );}, 30000);
+	$("#submit").click(function() {
+        var left;
+        var right;
+        $("#li").keyup(function() {
+            left = parseInt($(this).val());
+        }).keyup();
+        $("#ri").keyup(function() {
+            right = parseInt($(this).val());
+        }).keyup();
+        var op = $("#op").val();
+        if (left > -1 && right > -1 && li !== "" && ri !== "")
 		{
-			if (op === '+')
+            if (op === '+')
 				msg = left + right;
 			else if (op === '-')
 				msg = left - right;
@@ -123,10 +131,10 @@
 			else if (op === '%' && right === 0)
 				msg = "It’s over 9000!";
 		}
-		else
+        else
 			msg = "Error :(";
 		console.log(msg);
 		alert(msg);
-	}
+	});
 	</script>
 </html>
