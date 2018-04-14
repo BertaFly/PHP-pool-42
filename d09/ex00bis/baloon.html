@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="
+		width=device-width,
+		height=device-height,
+		initial-scale=1,
+		minimum-scale=1,
+		maximum-scale=1,
+		user-scalable=0"/>
+    <style>
+        .balloon
+        {
+            width: 200px;
+            height: 200px;
+            -webkit-border-radius: 10000px;
+            border-radius: 10000px;
+            background: red;
+            transition-property: background, width, height;
+            transition-duration: 0.3s;
+            margin: 30vh auto;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Balloon</title>
+</head>
+<body>
+<div class="balloon"></div>
+
+</body>
+<script>
+    const bal = $(".balloon");
+    var colors = ['red', 'green', 'blue'];
+    var colorIndex  = 0;
+    var width = 200;
+    var height = 200;
+
+    function changePropertiese(funcName) {
+        if (funcName == "mouseleave")
+        {
+            colorIndex = (colorIndex == 0) ? colors.length - 1 : colorIndex - 1;
+            width = width > 204 ? width - 5 : width;
+            height = height > 204 ? height - 5 : height;
+        }
+        else if (funcName == "click")
+        {
+            colorIndex = (colorIndex + 1) % colors.length;
+            width = width > 410 ? 200 : width + 10;
+            height = height > 410 ? 200 : height + 10;
+        }
+        bal.css("background-color", colors[colorIndex]);
+        bal.css("width", width + "px");
+        bal.css("height", height + "px");
+    };
+
+    bal.click(function() {
+        changePropertiese("click");
+    });
+
+    bal.mouseleave(function() {
+        changePropertiese("mouseleave");
+    });
+
+</script>
+</html>
