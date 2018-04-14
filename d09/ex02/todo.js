@@ -1,82 +1,65 @@
-const newTask = document.getElementsByTagName('button');
-// var task[];
-// newTask[0].addEventListener('click', () => 
-// 	{
-// 		var tmp = prompt("Write a task", "");
-// 		if (tmp !== "")
-// 		{
-// 			// task.unshift(tmp);
-// 			var div = document.createElement("div");
-// 			var node = document.createTextNode(tmp);
-// 			div.appendChild(node);
-// 			document.getElementById('ft_list').appendChild(div);
-// 		}
-
-// 	});
 var taskNbr = 0;
+
+function splitCookie() {
+    var str = document.cookie;
+    if (str == "")
+        return ;
+    str = str.replace("; ", ";");
+    var arr = str.split(";");
+    return (arr);
+}
+
+function delNode(node, nbr, text) {
+    node.parentNode.removeChild(node);
+    var search = nbr + "=" + btoa(text);
+    document.cookie = search + ";expires=Thu, 30 Apr 2018 12:00:00 UTC;";
+}
+
+function insertTask (nbr, text) {
+    var task = document.createElement('li');
+    task.setAttribute("id", nbr);
+    task.innerHTML = text;
+    task.addEventListener('click', function(event) {
+        if (event.target.tagName.toLowerCase() === 'li') {
+            if (confirm("This action will delete this task. Are you sure?")) {
+                var node = document.getElementById(event.target.id);
+                var search = event.target.id;
+                if (node.parentNode) {
+                	delNode(node, search, node.nodeValue);
+                }
+            }
+        }
+    })
+    return task;
+}
+
+window.onload = function(){
+	var arr = splitCookie();
+    var holder = document.getElementById("ft_list");
+    for (i = 0; i < arr.length; i++)
+	{
+		var id = parseInt(arr[i], 10);
+        var tmp = arr[i].substr(arr[i].indexOf("=") + 1);
+        var str = atob(tmp);
+        console.log(str);
+        if (str !== "null")
+        {
+            var task = insertTask(id, str);
+            holder.insertBefore(task, holder.firstChild);
+            taskNbr = id;
+        }
+    }
+};
+
 function addTask() {
-	var tmp = prompt("Write a task", "");
-	var toDo = document.getElementById('ft_list');
-	if (tmp !== "" && tmp !== "null")
+    taskNbr++;
+	var holder = document.getElementById("ft_list");
+	var tmp = prompt("Write task");
+	tmp = tmp.trim();
+	if (tmp != "null" && tmp != "")
 	{
-		var li = document.createElement("li");
-		// var node = document.createTextNode(tmp, {"id": "toDoTask", "name": taskNbr, "onclick": "delTask('name.value')"});
-		var node = document.createTextNode(tmp);
-		li.appendChild(node);
-		toDo.insertBefore(li, toDo.firstChild);
-
-		// var addOnClick = document.getElementsByTagName("li");
-		// var att = document.createAttribute("onclick");
-		// att.value = "delTask(name.value)";
-		// addOnClick.setAttributeNode(att);
-		// var att = document.createAttribute("name");
-		// att.value = taskNbr;
-		// addOnClick.setAttributeNode(att);
-		// taskNbr++;
-
-		document.getElementById("ft_list").appendChild(li);
-	    li.setAttribute("name", taskNbr++);
-	    li.setAttribute("onclick", "delTask(3)");
-	}
-};
-
-function delTask(elem) {
-	confirm("After click ok you will delete this task. Are you sure?");
-	var container = document.getElementById("ft_list");
-	var del = container.getElementsByTagName("li");
-	var myArr = [];
-	for (var i = 0; i < del.length; i++)
-	{
-		var self = del[i];
-		myArr.push(self);
-	}
-	console.log(myArr);
-	// del.forEach(function(elem) {
-	// 	if (strpos(del['outerHTML'], "elem") != NULL)
-	// 	{
-	// 		del.remove();
-	// 		break ;
-	// 	}
-	// });
-	for (var i = 0; i < myArr.length; i++) {
-		console.log(myArr[i]['outerHTML'].indexOf('name="' + elem));
-    	if (myArr[i]['outerHTML'].indexOf(elem) + 1 !== 0)
-		{
-			del[i].remove();
-			break ;
-		}
-	}
-	// del[0].remove();
-	console.log(del);
-    	// container.parentElement.removeChild(del[0]);
-    	// toDell.remove();
-	
-};
-// function delTask(elem) {
-// 	// var toDo = document.getElementById('ft_list');
-// 	var res = confirm("After click ok you will delete this task. Are you sure?");
-// 	if (res === TRUE)
-// 	{
-// 		elem.remove();
-// 	}
-// };
+		var task = insertTask(taskNbr, tmp);
+        document.cookie = taskNbr + "=" + btoa(tmp) + ";expires=Mon, 30 Apr 2018 12:00:00 UTC;";
+        holder.insertBefore(task, holder.firstChild);
+    }
+}

@@ -2,10 +2,69 @@
 <head>
 	<title>To Do</title>
 	<script src="todo.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel="stylesheet" type="text/css">
+	<style>
+		body {
+			background: linear-gradient(0.25turn, #80e5ff, #196666);
+		}
+		.container {
+			width: 360px;
+			margin: 100px auto;
+			background: #f7f7f7;
+			box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+		}
+		.title {
+			background: #2980b9;
+			color: white;
+			margin: 0;
+			padding: 10px 20px;
+			text-transform: uppercase;
+			font-size: 24px;
+			font-weight: normal;
+			font-family: "Roboto", sans-serif;
+		}
+			.title p {
+				display: inline-block;
+				margin: 0;
+			}
+			.title button.add_item {
+				float: right;
+			 	font-size: 24px;
+			 	font-weight: normal;
+			 	font-family: "Roboto", sans-serif;
+			 	cursor: pointer;
+			 	text-transform: uppercase;
+				background: none;
+				outline: none;
+				border: 0;
+				color: #fff;
+			}
+			li {
+				font-size: 18px;
+				color: #2980b9;
+				background-color: #f7f7f7;
+				width: 100%;
+				padding: 13px 13px 13px 20px;
+				box-sizing: border-box;
+				border: 3px solid rgba(0,0,0,0);
+				-webkit-box-sizing: border-box;
+				   -moz-box-sizing: border-box;
+				        box-sizing: border-box;
+				border: 1px solid #e6e6e6;
+			 	font-family: "Roboto", sans-serif;
+			}
+	</style>
 </head>
 <body>
-	<button class="add_item" type="submit" value="add task" onclick="addTask()">add task</button>
-	<div id="ft_list">
+	<div class="container">
+		<div class="title">
+			<p>
+				to-do list
+			</p>
+			<button class="add_item" type="submit" name="new" value="add-task" onclick="addTask()">new</button>
+		</div>
+		<div id="ft_list">
+		</div>
 	</div>
 </body>
 </html>
